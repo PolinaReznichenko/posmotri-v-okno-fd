@@ -48,10 +48,16 @@ ol {
   gap: 30px;
 }
 
+.result {
+  width: 100%;
+}
+              /*ВИДЕО*/
+
 .result__video-container {
   width: 711px;
   height: 386px;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
+  position: relative;
 }
 
 .result__video {
@@ -60,11 +66,18 @@ ol {
   object-fit: cover;  /*уточнить*/
 }
 
+           /*НАЧИНАЕТСЯ РАЗДЕЛ С ПОИСКОВОЙ ФОРМОЙ*/
+
 .search-form {
+  min-height: 54px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;
+  font-family: "Fira Sans Condensed", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  color: #fff;
 }
 
 .search-form__fieldset {
@@ -72,16 +85,16 @@ ol {
 }
 
 .search-form__fieldset:has(.search-form__checkbox-list) {
-  margin-bottom: 5px;
+  min-height: 49px;
 }
 
 .search-form__fieldset-title {
-  font-family: "Fira Sans Condensed", sans-serif;
-  font-weight: 400;
-  font-size: 18px;
+  font-family: inherit;
+  font-weight: inherit;
+  font-size: inherit;
   line-height: 100%;
   margin: 0 auto 5px 0;
-  color: #fff;
+  color: inherit;
 }
 
 .search-form__label {
@@ -89,6 +102,15 @@ ol {
   align-items: center;
   width: fit-content;
   gap: 5px;
+  cursor: pointer;
+}
+
+.search-form__label-text {
+  font-family: inherit;
+  font-weight: inherit;
+  font-size: inherit;
+  line-height: 100%;
+  color: inherit;
 }
 
 .visually-hidden {
@@ -103,19 +125,19 @@ ol {
 
 .search-form__textfield {
   appearance: none;
-  font-family: "Fira Sans Condensed", sans-serif;
-  font-weight: 400;
-  font-size: 18px;
+  font-family: inherit;
+  font-weight: inherit;
+  font-size: inherit;
   line-height: 100%;
-  color: #fff;
+  color: inherit;
   background-color: transparent;
   border-top: 1px solid #fff;
   border-bottom: 1px solid #fff;
   border-left: none;
   border-right: none;
-  padding: 2.5px 14px 2.5px 0;
-  width: 100%;
+  padding: 2.5px 0;
   min-width: 225px;
+  width: 100%;
 }
 
 .search-form__textfield::placeholder {
@@ -135,6 +157,10 @@ ol {
   display: flex;
   flex-direction: row;
   gap: 15px;
+}
+
+.search-form__checkbox {
+  opacity: 0;
 }
 
 .search-form__pseudo-checkbox {
@@ -158,26 +184,22 @@ ol {
   opacity: 1;
 }
 
-.search-form__label-text {
-  font-family: "Fira Sans Condensed", sans-serif;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 100%;
-  color: #fff;
-}
-
 .search-form__label:hover .search-form__label-text {
   text-decoration: underline;
 }
 
 .button {
+  min-height: 34px;
   border: 1px solid currentColor;
   color: inherit;
   font-family: inherit;
   font-weight: 700;
   font-size: inherit;
+  line-height: 100%;
   background-color: transparent;
   text-align: center;
+  cursor: pointer;
+  flex-shrink:0;
 }
 
 .button:hover {
@@ -198,9 +220,11 @@ ol {
 }
 
 .search-form__submit-button {
-  padding: 6px 73.5px;
+  padding: 6px 73px;
   align-self: self-end;
 }
+
+          /*НАЧИНАЕТСЯ СЕКЦИЯ С КАРТОЧКАМИ И ЗАГОЛОВКОМ*/
 
 .content__details {
   width: 100%;
@@ -222,14 +246,20 @@ ol {
   color: #545050;
 }
 
+/*СПИСОК С КАРТОЧКАМИ И КНОПКОЙ*/
+
 .content__list-container {
+  width: 100%;
   height: 298px;
   overflow: auto;
   display: flex;
   flex-direction: column;
   gap: 30px;
-  padding: 0 3px 0 2px;
+  position: relative;
+  padding: 0 2.5px 2px;
 }
+
+
 /* Кастомный скроллбар */
 .custom-scrollbar::-webkit-scrollbar {
   width: 4px;
@@ -242,7 +272,7 @@ ol {
 .custom-scrollbar::-webkit-scrollbar-thumb {
   background-color: #D9D9D9;
 }
-
+/* Кастомный скроллбар */
 
 
 .content__list {
@@ -252,9 +282,39 @@ ol {
   gap: 30px;
 }
 
+.content__list-item {
+  cursor: pointer;
+}
+
 .content__card-link {
   text-decoration: none;
   color: #fff;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+}
+
+.content__card-link_current {
+  background-color: #545050;
+}
+
+.content__card-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;  /*почему то не получается увеличить отступ, он пропадает. Можно попробовать сделать флекс и задать отступ*/
+}
+
+.content__card-link:active {
+  background-color: #545050;
+}
+
+.content__card-link:focus {
+  outline: none;
+}
+
+.content__card-link:focus-visible {
+  outline: 1px solid #fff;
+  outline-offset: 2px;
 }
 
 .content__video-card {
@@ -266,7 +326,7 @@ ol {
 
 .content__video-card-description-container {
   flex-grow: 1;
-  max-width: 196px;
+  min-width: 196px;
   color: #fff;
 }
 
@@ -291,6 +351,7 @@ ol {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 4;
   overflow: hidden;
+  padding: 0.4px 0;
 }
 
 .content__video-card-thumbnail {
@@ -301,6 +362,12 @@ ol {
 }
 
 .more-button {
-  padding: 6px 0;
+  padding: 6px;
+  min-width: 390px;
   width: 100%;
+}
+
+.preloader {
+  position: absolute;
+  inset: 0;
 }
