@@ -13,7 +13,7 @@ html {
   block-size: 100%;
   margin: auto;
   color: #fff;
-  font-family: 'Fira Sans Condensed', sans-serif;
+  font-family: "Fira Sans Condensed", sans-serif;
   font-size: 18px;
   background-color: #1b1919;
   display: flex;
@@ -46,30 +46,31 @@ ol {
   align-items: flex-end;
   width: 1140px;
   gap: 30px;
+  min-height: 534px;
 }
 
 .result {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: space-between;
 }
-              /*ВИДЕО*/
 
 .result__video-container {
   width: 711px;
   height: 386px;
-  margin-bottom: 16px;
   position: relative;
+  padding-top: 1px;
 }
 
 .result__video {
   width: 100%;
   height: 100%;
-  object-fit: cover;  /*уточнить*/
+  object-fit: cover;
 }
 
-           /*НАЧИНАЕТСЯ РАЗДЕЛ С ПОИСКОВОЙ ФОРМОЙ*/
-
 .search-form {
-  min-height: 54px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -78,23 +79,20 @@ ol {
   font-weight: 400;
   font-size: 18px;
   color: #fff;
+  margin-top: 4px;
 }
 
 .search-form__fieldset {
   border: none;
 }
 
-.search-form__fieldset:has(.search-form__checkbox-list) {
-  min-height: 49px;
-}
-
 .search-form__fieldset-title {
   font-family: inherit;
   font-weight: inherit;
   font-size: inherit;
-  line-height: 100%;
-  margin: 0 auto 5px 0;
   color: inherit;
+  line-height: 100%;
+  margin: 0 auto 6px 0;
 }
 
 .search-form__label {
@@ -124,6 +122,8 @@ ol {
 }
 
 .search-form__textfield {
+  min-width: 225px;
+  width: 100%;
   appearance: none;
   font-family: inherit;
   font-weight: inherit;
@@ -136,8 +136,6 @@ ol {
   border-left: none;
   border-right: none;
   padding: 2.5px 0;
-  min-width: 225px;
-  width: 100%;
 }
 
 .search-form__textfield::placeholder {
@@ -174,9 +172,9 @@ ol {
 .search-form__pseudo-checkbox::after {
   content: "";
   display: block;
-  background-color: #fff;
   width: 100%;
   height: 100%;
+  background-color: #fff;
   opacity: 0;
 }
 
@@ -186,10 +184,10 @@ ol {
 
 .search-form__label:hover .search-form__label-text {
   text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
 .button {
-  min-height: 34px;
   border: 1px solid currentColor;
   color: inherit;
   font-family: inherit;
@@ -199,11 +197,11 @@ ol {
   background-color: transparent;
   text-align: center;
   cursor: pointer;
-  flex-shrink:0;
 }
 
 .button:hover {
   text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
 .button:active {
@@ -216,15 +214,13 @@ ol {
 
 .button:focus-visible {
   outline: 1px solid #fff;
-  outline-offset: 2px;  /*у показать еще почему то не видно нижней и левой границы*/
+  outline-offset: 2px;
 }
 
 .search-form__submit-button {
-  padding: 6px 73px;
+  padding: 7.7px 73px;
   align-self: self-end;
 }
-
-          /*НАЧИНАЕТСЯ СЕКЦИЯ С КАРТОЧКАМИ И ЗАГОЛОВКОМ*/
 
 .content__details {
   width: 100%;
@@ -233,11 +229,11 @@ ol {
 }
 
 .title {
-  margin-bottom: 26px;
+  margin-bottom: 21px;
   font-family: "Oswald", sans-serif;
   font-weight: 700;
   font-size: 75px;
-  line-height: 94%;
+  line-height: 0.94;
   text-transform: uppercase;
   color: #fff;
 }
@@ -245,8 +241,6 @@ ol {
 .content__accent {
   color: #545050;
 }
-
-/*СПИСОК С КАРТОЧКАМИ И КНОПКОЙ*/
 
 .content__list-container {
   width: 100%;
@@ -256,10 +250,8 @@ ol {
   flex-direction: column;
   gap: 30px;
   position: relative;
-  padding: 0 2.5px 2px;
+  padding: 2.2px 2.7px 2.7px;
 }
-
-
 /* Кастомный скроллбар */
 .custom-scrollbar::-webkit-scrollbar {
   width: 4px;
@@ -270,10 +262,8 @@ ol {
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background-color: #D9D9D9;
+  background-color: #d9d9d9;
 }
-/* Кастомный скроллбар */
-
 
 .content__list {
   display: flex;
@@ -283,7 +273,7 @@ ol {
 }
 
 .content__list-item {
-  cursor: pointer;
+  width: 100%;
 }
 
 .content__card-link {
@@ -293,6 +283,7 @@ ol {
   width: 100%;
   height: 100%;
   background-color: transparent;
+  cursor: pointer;
 }
 
 .content__card-link_current {
@@ -301,7 +292,8 @@ ol {
 
 .content__card-link:hover {
   text-decoration: underline;
-  text-underline-offset: 4px;  /*почему то не получается увеличить отступ, он пропадает. Можно попробовать сделать флекс и задать отступ*/
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
 }
 
 .content__card-link:active {
@@ -314,44 +306,44 @@ ol {
 
 .content__card-link:focus-visible {
   outline: 1px solid #fff;
-  outline-offset: 2px;
 }
 
 .content__video-card {
   display: flex;
+  height: 100%;
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;
 }
 
 .content__video-card-description-container {
-  flex-grow: 1;
   min-width: 196px;
   color: #fff;
+  flex-grow: 1;
 }
 
 .content__video-card-title {
   font-family: "Oswald", sans-serif;
   font-weight: 700;
   font-size: 30px;
-  line-height: 100%;
+  line-height: 1;
   text-transform: uppercase;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  margin-bottom: 6px;
+  padding-bottom: 6px;
 }
 
 .content__video-card-description {
-  font-family: "Fira Sans Condensed", sans-serif;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 16.2px;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 4;
+  padding-bottom: 3px;
   overflow: hidden;
-  padding: 0.4px 0;
+  font-family: "Fira Sans Condensed", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 0.9;
 }
 
 .content__video-card-thumbnail {
@@ -362,9 +354,10 @@ ol {
 }
 
 .more-button {
-  padding: 6px;
   min-width: 390px;
   width: 100%;
+  padding: 7.4px;
+  flex-shrink: 0;
 }
 
 .preloader {
